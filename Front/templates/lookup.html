@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<head>
+    <link rel="stylesheet" href="/static/css/lookup.css">
+    <script>let FF_FOUC_FIX; </script><!-- This variable is to fix a bug currently in Firefox -->
+</head>
+<!-- Page Content -->
+<header id="home">
+    <h1>Monitor Lookup</h1>
+    <h2>Find Monitors for a Host</h2>
+</header>
+
+<div id="content">
+<!-- Form Section -->
+    <div id="lookupForm">
+        <form action="{{ url_for('lookup') }}" novalidate enctype="multipart/form-data" method="POST" autocomplete="off">
+            {{ form.csrf_token }}
+            <div id = "form-content">
+                <div class = "form-item">
+                    {{form.hosts(class="form-input", placeholder="Comma Separated Host Names", id="hosts")}}
+                    {% if form.hosts.errors %}
+                        <ul class="errors">
+                            {% for error in form.hosts.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+            <button id="submit-button" type="submit">
+                <i class="fa fa-search"></i> Find Monitors
+            </button>          
+        </form>
+        <!-- End Form Section -->
+    <!-- END PAGE CONTENT -->
+    </div>
+</div>
+{% endblock body %}
+

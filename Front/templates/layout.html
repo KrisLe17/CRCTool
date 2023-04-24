@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Tip/Note: if a section doesn't have a block, it's universal across pages (I think)-->
+<head>
+    <title>CRC Maintenance Tool</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/layout.css">
+</head>
+
+
+<!-- Tip/Note: Place the blocks INSIDE head, body, etc -->
+<body>
+    <div id="page">
+        <div id="nav-bar">
+            {% include "includes/nav.html" %}
+        </div>
+        <div id="main">
+            {% block body %}
+            {% endblock body %}
+            {% include "includes/footer.html" %}
+        </div>
+    </div>
+    <img id="corner-logo" src="../static/images/Epicor_Logo_White_RGB.png">
+</body>
+<script src ="static/js/onload.js"></script>
+</html>

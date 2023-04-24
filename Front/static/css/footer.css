@@ -1,0 +1,12 @@
+footer{
+    display:flex;
+    justify-content: center;
+    background-color: rgba(238, 242, 245, 0.4);
+    width: 100%;
+    margin-top: 50px;
+    border-radius: 0 0 15px 0;
+}
+
+.fa-heart{
+    padding-left: 5px;
+}

@@ -1,0 +1,172 @@
+body{
+    background-color: rgb(2, 80, 100); /* 49, 83, 68 */
+    background-image: url('../images/drains.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    padding:0;
+    margin:0;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+h1{
+    font-size: 50px;
+    color: white;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+
+h2{
+    font-size: 30px;
+    color: white;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding:0;
+    margin-bottom: 50px;
+    margin-top: 0;
+}
+
+#main{
+    padding-top:30px;
+    background-color: rgba(144, 210, 181, 0.8); /* 144, 210, 181 || (131, 185, 199, 0.8) || (120, 205, 226, 0.8)*/
+    display:flex;
+    flex-direction: column;
+    width:30%;
+    align-items: center;
+    margin:25px;
+    margin-top: 50px;
+    margin-right: 10%;
+    margin-left: 10%;
+    border-radius: 15px 15px 15px 15px;
+    padding-bottom: 0;
+    min-height: 520px;
+}
+
+#content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+.form-item{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+form{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+#form-content{
+    display:flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    align-items:center;
+}
+
+.form-input{
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width:85%;
+    border: 2px solid rgba(4, 158, 138, 1);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: rgba(20, 20, 20, .3);
+    color: white;
+    outline: none;
+    align-self: center;
+}
+
+.form-input:focus{
+    border: 2px solid rgb(4, 158, 138)
+}
+
+#loginForm{
+    display: flex;
+    width:100%;
+    justify-content: center;
+}
+
+::placeholder{
+    color: white;
+}
+
+.errors{
+    list-style: none;
+    *list-style: decimal;
+    font-size: 15px;
+    font-family: 'Raleway', sans-serif;
+    padding: 0;
+    margin-bottom: 4em;
+    counter-reset: li;
+    margin-top: 20px;
+    margin-bottom:-30px;
+    font-weight: bold;
+    align-self: center;
+    margin-left:10px;
+}
+
+.errors li{
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em 2em;
+    *padding: .4em;
+    margin: .5em 0;
+    background: rgb(254, 190, 159);
+    color: #000;
+    text-decoration: none;
+    -moz-border-radius: .3em;
+    -webkit-border-radius: .3em;
+    border-radius: 10em;
+    transition: all .2s ease-in-out;
+    width: 350px;
+}
+
+.errors li:before{
+    content: "!";
+    position: absolute;
+    left: -1.3em;
+    top: 50%;
+    margin-top: -1.3em;
+    background:rgb(255, 136, 115);
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border: .3em solid #fff;
+    text-align: center;
+    font-weight: bold;
+    -moz-border-radius: 2em;
+    -webkit-border-radius: 2em;
+    border-radius: 2em;
+    color:#FFF;
+}
+
+#submit-button{
+    border: 1px solid rgba(10, 180, 180, 1);
+    background: rgba(20, 20, 20, .6);
+    font-size: 18px;
+    color: white;
+    margin-top: 20px;
+    padding: 10px 50px;
+    cursor: pointer;
+    transition: .4s;
+    max-width: 450px;
+    align-self: center;
+}
+
+#submit-button:hover{
+    background: rgba(20, 20, 20, .8);
+    padding: 10px 80px;
+}

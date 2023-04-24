@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Tip/Note: if a section doesn't have a block, it's universal across pages (I think)-->
+<head>
+    <title>CRC Maintenance Tool</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+</head>
+
+
+    <!-- Tip/Note: Place the blocks INSIDE head, body, etc -->
+    <body>
+        <div id="main">
+            <!-- Page Content -->
+            <header>
+                <h1>CRC Tool</h1>
+                <h2>Login to Continue</h2>
+            </header>
+
+            <div id="content">
+            <!-- Form Section -->
+                <div id="loginForm">
+                    <form action="" method="POST" autocomplete="off">
+                        {{ form.csrf_token }}
+                        <div id = "form-content">
+                            <div class = "form-item">
+                                {{form.username(class="form-input", placeholder="Username", id="user")}}
+                            </div>
+                            <div class = "form-item">
+                                    {{form.password(class="form-input", placeholder="Password", id="pwd")}}
+                            </div>
+                            <p>Forgot Login? <a href="/contact">Contact the CRC!</a></p>
+                        </div>
+                        <button id="submit-button" type="submit" value="Login">
+                            <i class="fa fa-paper-plane"></i> Login
+                        </button>
+                        {% if error %}
+                        <ul class="errors">
+                            <li>ERROR: {{ error }}</li>
+                        </ul>
+                        {% endif %}          
+                    </form>
+                    <!-- End Form Section -->
+                <!-- END PAGE CONTENT -->
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
+
+

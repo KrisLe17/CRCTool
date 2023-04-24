@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<head>
+    <link rel="stylesheet" href="/static/css/result.css">
+    <script>let FF_FOUC_FIX; </script><!-- This variable is to fix a bug currently in Firefox -->
+</head>
+<header id="home">
+    <h1>Maintenance Tool</h1>
+    {% if result|length == 0 and multiple|length == 0 %}
+        <h2>Maintenance Set Successfully!</h2>
+    {% else %}
+        <h2>Maintenenance Set, But Errors Ocurred :&#40;</h2>
+    {% endif %}
+</header>
+<div id="content-container">
+{% if result|length == 0 and multiple|length == 0 %}
+    <p id="heading">All hosts were found and placed in Maintenance. Woo!</p>
+{% endif %}
+{% if result|length > 0 %}
+    <p class="heading">We were unable to locate monitors for the below hosts:</p>
+    <div class="list-type1">
+        <ol>
+        {% for value in result %}
+            <li> {{ value }}</li>
+            {% if (loop.index % 9 == 0) and (loop.index < result|length) %}
+                </ol>
+                <ol>
+            {% endif %}
+        {% endfor %}
+        </ol>
+    </div>
+{% endif %}
+{% if multiple|length > 0 %}
+    <p class="heading">Multiple monitors were located for the below hosts,</p>
+    <p class="heading">Please set maintenance manually:</p>
+    <div class="list-type1">
+        <ol>
+        {% for value in multiple %}
+            <li> {{ value }}</li>
+            {% if (loop.index % 9 == 0) and (loop.index < multiple|length) %}
+                </ol>
+                <ol>
+            {% endif %}
+        {% endfor %}
+        </ol>
+    </div>
+{% endif %}
+</div>
+{% endblock body %}

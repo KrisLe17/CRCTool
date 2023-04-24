@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<head>
+    <link rel="stylesheet" href="/static/css/host_info.css">
+    <script>let FF_FOUC_FIX; </script><!-- This variable is to fix a bug currently in Firefox -->
+</head>
+<header id="home">
+    <h1>Monitor Lookup</h1>
+    <h2>Find Monitors for a Host</h2>
+</header>
+<div id="content-container">
+    <p class="heading">Information for Entered Hosts:</p>
+    <div class="list-type1">
+        <ol>
+        {% for value in info %}
+            <li> {{ value["monitor_name"] }}</li>
+            {% if value["monitor_ip"] == "Monitor not found" %}
+                <li><b>{{ value["monitor_ip"] }}</b></li>
+                <li class="hidden"></li>
+                <li class="hidden"></li>
+            {% else %}
+                <li> <b>Monitor IP:</b> {{ value["monitor_ip"] }}</li>
+                <li> <b>Monitor Type:</b> {{ value["board_type"]}}</li>
+                <li> <b>Board/BU: </b>{{ value["board_name"] }}</li>
+            {% endif %}
+            {% if (loop.index % 3 == 0) and (loop.index < result|length) %}
+                </ol>
+                <ol>
+            {% endif %}
+        {% endfor %}
+        </ol>
+    </div>
+</div>
+{% endblock body %}

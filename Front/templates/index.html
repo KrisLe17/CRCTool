@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<!-- Page Content -->
+<head>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <script>let FF_FOUC_FIX; </script><!-- This variable is to fix a bug currently in Firefox -->
+</head>
+<header id="home">
+    <h1>Maintenance Tool</h1>
+    <h2>Place Site24x7 and Nagios Monitors in Maintenance Mode</h2>
+</header>
+<div id="loading">
+    <h2>Script is Running, Please Wait...</h2>
+</div>
+<div id="content">
+<!-- Form Section -->
+    <div id="maintForm">
+        <form action="/" novalidate enctype="multipart/form-data" method="POST" autocomplete="off">
+            {{ form.csrf_token }}
+            <div id = "form-content">
+                <div class = "form-item">
+                    {{form.hosts.label(class="form-label")}}
+                    {{form.hosts(class="form-input", placeholder="Comma-Separated Host Names", id="host-names")}}
+                    {% if form.hosts.errors %}
+                        <ul class="errors">
+                            {% for error in form.hosts.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    </div>
+                    <div class = "form-item">
+                        <label class="form-label">Or Upload a File (.csv, .xls, .xlsx)</label>
+                        <div id="file-section">
+                            {{form.files.label(for="file-upload", class="custom-file")}}
+                            <span id="file-selected"></span>
+                        </div>
+                        {{form.files(id="file-upload")}}
+                        {% if form.files.errors %}
+                            <ul class="errors">
+                                {% for error in form.files.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class = "form-item">
+                        {{form.date.label(class="form-label")}}
+                        {{form.date(id="maintDate", class="form-input")}}
+                        {% if form.date.errors %}
+                            <ul class="errors">
+                                {% for error in form.date.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class = "form-item">
+                        {{form.time.label(class="form-label")}}
+                        {{form.time(id="maintTime", class="form-input")}}
+                        {% if form.time.errors %}
+                            <ul class="errors">
+                                {% for error in form.time.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class = "form-item">
+                        {{form.duration.label(class="form-label")}}
+                        {{form.duration(id="duration", class="form-input",placeholder="Minutes")}}
+                        {% if form.duration.errors %}
+                            <ul class="errors">
+                                {% for error in form.duration.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            <button id="submit-button" type="submit" onclick="loading()">
+                <i class="fa fa-paper-plane"></i> Submit Maintenance
+            </button>          
+        </form>
+        <!-- End Form Section -->
+    <!-- END PAGE CONTENT -->
+    </div>
+</div>
+<script src ="static/js/form.js"></script>
+{% endblock body %}
+

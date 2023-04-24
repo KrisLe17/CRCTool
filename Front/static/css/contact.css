@@ -1,0 +1,9 @@
+#contact{
+    font-size: 30px;
+    color: white;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    padding:0;
+    padding-top: 50px;
+    padding-bottom: 120px;
+}
